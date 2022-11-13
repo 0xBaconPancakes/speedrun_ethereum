@@ -36,7 +36,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 //
 // Select the network you want to deploy to here:
 //
-const defaultNetwork = 'localhost';
+const defaultNetwork = 'goerli';
 
 const getMnemonic = () => {
   try {
@@ -99,6 +99,7 @@ const config: HardhatUserConfig = {
     },
     goerli: {
       url: 'https://goerli.infura.io/v3/460f40a260564ac4a4f4b3fffb032dad', // <---- YOUR INFURA ID! (or it won't work)
+      gas: 6000000,
       accounts: {
         mnemonic: getMnemonic(),
       },

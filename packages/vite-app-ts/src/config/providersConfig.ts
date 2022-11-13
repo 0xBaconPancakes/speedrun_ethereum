@@ -12,7 +12,7 @@ const DEBUG = true;
 // -------------------
 // 📡 What chain are your contracts deployed to? 🤚🏽  Set your target frontend network
 // -------------------
-export const targetNetworkInfo: TNetworkInfo = NETWORKS.localhost;
+export const targetNetworkInfo: TNetworkInfo = NETWORKS.goerli;
 // <------- select your target frontend network (localhost, rinkeby, xdai, mainnet)
 if (DEBUG) console.log('📡 Connecting to Mainnet Ethereum');
 
@@ -33,7 +33,7 @@ export const mainnetProvider =
 // connecting to local provider
 // -------------------
 // 🏠 Your local provider is usually pointed at your local blockchain
-export const localNetworkInfo = NETWORKS.localhost;
+export const localNetworkInfo = NETWORKS.goerli;
 
 // as you deploy to other networks you can set REACT_APP_PROVIDER=https://dai.poa.network in packages/react-app/.env
 // const localProviderUrl = process.env.REACT_APP_PROVIDER ? process.env.REACT_APP_PROVIDER :
