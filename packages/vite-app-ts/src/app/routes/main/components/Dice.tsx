@@ -83,13 +83,12 @@ export const Dice: FC<DiceProps> = (props) => {
     }
   };
 
-  /*
   const riggedRoll = async () => {
     if (!tx) {
       return;
     }
     try {
-      tx(riggedRollContractWrite.riggedRoll({ gasLimit: 500000 }), update => {
+      tx(riggedRollContractWrite.riggedRoll({ value: ethers.utils.parseEther("0.002"), gasLimit: 500000 }), update => {
         console.log("TX UPDATE", update);
         if (update?.status === "sent" || update?.status === 1) {
           setDiceRolled(true);
@@ -119,7 +118,6 @@ export const Dice: FC<DiceProps> = (props) => {
       setDiceRolled(false);
     }
   });
-  */
 
   const filter = diceGameContractRead?.filters.Roll(ethersContext.account, null);
 
@@ -159,7 +157,7 @@ export const Dice: FC<DiceProps> = (props) => {
           <Button type="primary" disabled={diceRolled} onClick={rollTheDice}>
             Roll the dice!
           </Button>
-          {/*
+          {
           <div style={{ padding: 16 }}>
             <div style={{ padding: 16 }}>
               <Address address={readContracts?.RiggedRoll?.address} ensProvider={mainnetProvider} fontSize={24} />
@@ -170,7 +168,7 @@ export const Dice: FC<DiceProps> = (props) => {
               Rigged Roll!
             </Button>
           </div>
-        */}
+        }
         </div>
         {diceRollImg}
       </div>

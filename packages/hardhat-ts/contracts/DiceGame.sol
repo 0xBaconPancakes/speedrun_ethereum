@@ -26,24 +26,24 @@ contract DiceGame {
         bytes32 hash = keccak256(abi.encodePacked(prevHash, address(this), nonce));
         uint256 roll = uint256(hash) % 16;
 
-        console.log("THE ROLL IS ",roll);
+        console.log("THE ROLL IS ", roll);
 
         nonce++;
         prize += ((msg.value * 40) / 100);
 
         emit Roll(msg.sender, roll);
 
-        if (roll > 2 ) {
+        if (roll > 2) {
             return;
         }
 
         uint256 amount = prize;
-        (bool sent, ) = msg.sender.call{value: amount}("");
+        (bool sent,) = msg.sender.call{value : amount}("");
         require(sent, "Failed to send Ether");
 
         resetPrize();
         emit Winner(msg.sender, amount);
     }
 
-    receive() external payable {  }
+    receive() external payable {}
 }

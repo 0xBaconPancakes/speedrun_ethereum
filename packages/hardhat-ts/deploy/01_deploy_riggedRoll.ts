@@ -10,19 +10,18 @@ const func: DeployFunction = async (hre: HardhatRuntimeEnvironmentExtended) => {
 
     const DiceGameContract = await hre.deployments.get('DiceGame');
 
-    /*
     await deploy('RiggedRoll', {
         // Learn more about args here: https://www.npmjs.com/package/hardhat-deploy#deploymentsdeploy
         from: deployer,
         args: [DiceGameContract.address],
         log: true,
+        // value: ethers.utils.parseEther(".05"),
     });
-    */
 
     // Getting a previously deployed contract
-    //const riggedRoll = await ethers.getContract("RiggedRoll", deployer);
+    const riggedRoll = await ethers.getContract("RiggedRoll", deployer);
 
-    //const ownershipTransaction = await riggedRoll.transferOwnership("** YOUR FRONTEND ADDRESS **");
+    const ownershipTransaction = await riggedRoll.transferOwnership("0xDe0476793ff6BBf931B5FD8586E275B43Be195C2");
 
 };
 export default func;

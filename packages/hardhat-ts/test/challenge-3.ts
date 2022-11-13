@@ -80,6 +80,7 @@ describe("🚩 Challenge 3: 🎲 Dice Game", () => {
     it("Should transfer sufficient eth to RiggedRoll", async () => {
       await fundRiggedContract();
       let balance = await provider.getBalance(riggedRoll.address);
+      console.log("RiggedRoll balance: ", balance.toString());
       expect(balance).to.above(ethers.utils.parseEther(".002"));
     });
   });
@@ -96,6 +97,8 @@ describe("🚩 Challenge 3: 🎲 Dice Game", () => {
         expectedRoll.toNumber()
       );
 
+      // const options = { value: ethers.utils.parseEther("0.002") };
+      // let tx = riggedRoll.riggedRoll(options);
       let tx = riggedRoll.riggedRoll();
 
       it("Should emit Roll event!", async () => {
